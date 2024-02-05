@@ -1,0 +1,27 @@
+#gettext {
+    margin-left:0.5rem;
+    margin-right:0.5rem;
+    padding: 0.4rem;
+    min-width: 15rem;
+    border: 1px solid;
+    background-color: aliceblue;
+    border-radius: 2px;
+
+}
+
+#sendtext {
+    padding: 0.4rem;
+    cursor:pointer;
+    border: 1px solid;
+    border-radius: 2px;
+}
+
+#archive_text {
+    margin:0.5rem 0;
+    font-family:'Arial Narrow', Arial, sans-serif;
+    font-weight: 100;
+    font-size: smaller;
+    padding: 0.5rem;
+    background-color: lightcyan;
+}
+
