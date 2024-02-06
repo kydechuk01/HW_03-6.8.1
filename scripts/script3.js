@@ -1,56 +1,48 @@
 // список цветов лампы (расширяемый в перспективе)
-const colorCycle = ["black", "red", "yellow", "green"];
+const colorCycle = ["black", "green", "yellow", "red"];
 
 // стартовые значения цветов ламп и указателей
-let lamp1_color = 0;
-let lamp2_color = 0;
-let lamp3_color = 0;
+let nextLamp = 1; // первая лампа, которая будет включена
 let lamp1 = document.querySelector("#lamp1");
 let lamp2 = document.querySelector("#lamp2");
 let lamp3 = document.querySelector("#lamp3");
 
 // меняем цвета целевой лампы на заданный по номеру
-function changeLight(lamp, colorNum) {
-  lamp.style.background = colorCycle[colorNum];
-}
-
-// циклически меняем номер цвета лампы на следующий, начиная цикл с #1 в списке цветов
-function shiftLampColor(lamp) {
-  let newlamp = lamp + 1;
-  if (newlamp > colorCycle.length - 1) {
-    newlamp = 1;
+function changeLight() {
+  switch (nextLamp) {
+      case 1:
+        lamp1.style.background = colorCycle[1];
+        lamp2.style.background = colorCycle[0];
+        lamp3.style.background = colorCycle[0];
+        nextLamp++;
+        break;
+      case 2:
+        lamp1.style.background = colorCycle[0];
+        lamp2.style.background = colorCycle[2];
+        lamp3.style.background = colorCycle[0];
+        nextLamp++;
+        break;
+      case 3:
+        lamp1.style.background = colorCycle[0];
+        lamp2.style.background = colorCycle[0];
+        lamp3.style.background = colorCycle[3];
+        nextLamp = 1;
   }
-  return newlamp;
-}
+};
 
 // подключаем события обработки клика на каждую лампу
 
 lamp1.addEventListener("click", () => {
   // lamp1 clicked
-  lamp1_color = shiftLampColor(lamp1_color);
-  lamp2_color = 0;
-  lamp3_color = 0;
-  changeLight(lamp1, lamp1_color);
-  changeLight(lamp2, lamp2_color);
-  changeLight(lamp3, lamp2_color);
+  changeLight();
 });
 
 lamp2.addEventListener("click", () => {
   // lamp2 clicked
-  lamp1_color = 0;
-  lamp2_color = shiftLampColor(lamp2_color);
-  lamp3_color = 0;
-  changeLight(lamp1, lamp1_color);
-  changeLight(lamp2, lamp2_color);
-  changeLight(lamp3, lamp3_color);
+  changeLight();
 });
 
 lamp3.addEventListener("click", () => {
   // lamp3 clicked
-  lamp1_color = 0;
-  lamp2_color = 0;
-  lamp3_color = shiftLampColor(lamp3_color);
-  changeLight(lamp1, lamp1_color);
-  changeLight(lamp2, lamp2_color);
-  changeLight(lamp3, lamp3_color);
+  changeLight();
 });
