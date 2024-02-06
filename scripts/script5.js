@@ -24,11 +24,8 @@ function formProcess () {
 
 // обработчик на нажатие Enter внутри поля "get_text"
 getText.addEventListener('keyup', function(event) {
-    event.preventDefault(); // отключаем реакцию на запуск submit
-    if (event.keyCode === 13) {
-       // console.log('Enter');
-       formProcess();
-    }
+
+       archiveText.textContent = getText.value;
 })
 
 sendText.addEventListener('click',function(event) {
