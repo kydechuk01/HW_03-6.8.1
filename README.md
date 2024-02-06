@@ -12,7 +12,8 @@
 
 ### Запуск проекта
 
-Открыть файл [index.html](./index.html) любым браузером.
+* Открыть файл [index.html](./index.html) любым браузером.
+* [Страница задания](https://kydechuk01.github.io/HW_03-6.8.1/index.html) на github pages.
 
 ### Список решенных задач
 

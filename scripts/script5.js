@@ -15,7 +15,9 @@ function formProcess () {
     newText = getText.value;
     if (newText) { // пользовател ввел хоть что-нибудь
         console.log(dateFormat(),'Пользователь ввел:',newText);
+        // альтернативное решение задачи - запоминать последний ввод на экране
         archiveText.innerHTML = '<p><span style="color: blue;">' + dateFormat() + ': </span>' + newText + '</p>';
+        // archiveText.innerHTML = ''; если надо очищать архив
         getText.value = ''; // очищаем поле ввода
     } else {
         console.warn(dateFormat(),'Пользователь отправил пустую строку');
@@ -24,7 +26,6 @@ function formProcess () {
 
 // обработчик на нажатие Enter внутри поля "get_text"
 getText.addEventListener('keyup', function(event) {
-
        archiveText.textContent = getText.value;
 })
 
